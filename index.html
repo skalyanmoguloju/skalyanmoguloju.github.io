@@ -1,1 +1,144 @@
-Hello World
+<!-- Main -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > 150) {
+                $('.navbar').addClass('shrink');
+            }
+            else {
+                $('.navbar').removeClass('shrink'); }
+        });
+
+
+    </script>
+    <style>
+        /*
+Ref:
+Thanks to:
+http://span-tag.com/bootstrap-navbar/
+*/
+
+        body {
+            min-height: 2000px;
+        }
+
+
+        /* added to  .nav */
+        .normal {
+            xheight: 75px; /* this causes drop down to lose color ??? */
+            -webkit-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -ms-transition: 0.5s;
+            transition: 0.5s;
+        }
+
+        .normal .navbar-right {
+            padding-top: 12px;
+            -webkit-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -ms-transition: 0.5s;
+            transition: 0.5s;
+        }
+        .navbar-brand {
+            padding: 0px !important;
+        }
+        .navbar-brand img {
+            padding: 5px;
+            max-height: 75px;
+            -webkit-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -ms-transition: 0.5s;
+            transition: 0.5s;
+        }
+        .shrink {
+            height: 50px;
+            -webkit-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -ms-transition: 0.5s;
+            transition: 0.5s;
+        }
+        .shrink .navbar-right {
+            padding-top: 0px;
+            -webkit-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -ms-transition: 0.5s;
+            transition: 0.5s;
+        }
+        .shrink .navbar-brand img {
+            max-height: 50px;
+            -webkit-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -ms-transition: 0.5s;
+            transition: 0.5s;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+
+<div id="main">
+
+    <!--
+    Camera image by:
+    https://www.iconfinder.com/jackietran
+    -->
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top normal" role="navigation">
+
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img class="img-responsive" src="https://cdn4.iconfinder.com/data/icons/adore/118/Camera.png" alt=""></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a>
+                    </li>
+                    <li><a href="#about">About</a>
+                    </li>
+                    <li><a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+        <!--/.contatiner -->
+    </nav>
+
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <br>
+            <h2>Sai <small>Kalyan Moguloju</small></h2>
+
+            </p>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+
+    </div>
+
+
+</body>
+
+
+
