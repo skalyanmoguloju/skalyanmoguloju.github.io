@@ -2,6 +2,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="CSS/mystyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -85,318 +86,6 @@
 
 
     </script>
-    <style>
-        /*
-Ref:
-Thanks to:
-http://span-tag.com/bootstrap-navbar/
-*/
-        /* START OF DEMO CSS - NOT NEEDED */
-        html, body { height: 100% } /* BODY BACKGROUND IMAGE DOESNT ALWAYS REACH THE BOTTOM OF THE BROWSER*/
-        body {
-            background-color: rgb(100, 100, 100);
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-            color: rgb(255, 255, 255);
-        }
-        .white-background {
-            background-color: rgb(255, 255, 255);
-            color: rgb(51, 51, 51);
-            padding-top: 10px;
-            border-radius: 4px;
-        }
-        .title {
-            font-size: 3em;
-            font-weight: 700;
-            text-shadow: 0px 0px 5px rgb(51, 51, 51);
-            text-shadow: 0px 0px 5px rgba(51, 51, 51, 0.8);
-            text-align: center;
-        }
-        #fullscreen {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-        }
-        /* END OF DEMO CSS */
-
-        .animate {
-            -webkit-transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out;
-            -o-transition: all 0.3s ease-in-out;
-            -ms-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .navbar-fixed-left {
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            border-radius: 0px;
-        }
-
-        .navbar-minimal {
-            width: 60px;
-            min-height: 60px;
-            max-height: 100%;
-            background-color: rgb(51, 51, 51);
-            background-color: rgba(51, 51, 51, 0.8);
-            border-width: 0px;
-            z-index: 1000;
-        }
-
-        .navbar-minimal > .navbar-toggler {
-            position: relative;
-            min-height: 60px;
-            border-bottom: 1px solid rgb(81, 81, 81);
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        .navbar-minimal.open > .navbar-toggler,
-        .navbar-minimal > .navbar-toggler:hover {
-            background-color: rgb(158, 202, 59);
-        }
-
-        .navbar-minimal > .navbar-toggler > span {
-            position: absolute;
-            top: 50%;
-            right: 50%;
-            margin: -8px -8px 0 0;
-            width: 16px;
-            height: 16px;
-            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjMycHgiIHZpZXdCb3g9IjAgMCAxNiAzMiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTYgMzIiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI0ZGRkZGRiIgZD0iTTEsN2gxNGMwLjU1MiwwLDEsMC40NDgsMSwxcy0wLjQ0OCwxLTEsMUgxQzAuNDQ4LDksMCw4LjU1MiwwLDgKCVMwLjQ0OCw3LDEsN3oiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNGRkZGRkYiIGQ9Ik0xLDEyaDE0YzAuNTUyLDAsMSwwLjQ0OCwxLDFzLTAuNDQ4LDEtMSwxSDFjLTAuNTUyLDAtMS0wLjQ0OC0xLTEKCVMwLjQ0OCwxMiwxLDEyeiIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI0ZGRkZGRiIgZD0iTTEsMmgxNGMwLjU1MiwwLDEsMC40NDgsMSwxcy0wLjQ0OCwxLTEsMUgxQzAuNDQ4LDQsMCwzLjU1MiwwLDMKCVMwLjQ0OCwyLDEsMnoiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNGRkZGRkYiIGQ9Ik0xLjMzLDI4Ljk3bDExLjY0LTExLjY0YzAuNDU5LTAuNDU5LDEuMjA0LTAuNDU5LDEuNjYzLDAKCWMwLjQ1OSwwLjQ1OSwwLjQ1OSwxLjIwNCwwLDEuNjYzTDIuOTkzLDMwLjYzM2MtMC40NTksMC40NTktMS4yMDQsMC40NTktMS42NjMsMEMwLjg3MSwzMC4xNzQsMC44NzEsMjkuNDMsMS4zMywyOC45N3oiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yLjk5MywxNy4zM2wxMS42NDEsMTEuNjRjMC40NTksMC40NTksMC40NTksMS4yMDQsMCwxLjY2MwoJcy0xLjIwNCwwLjQ1OS0xLjY2MywwTDEuMzMsMTguOTkzYy0wLjQ1OS0wLjQ1OS0wLjQ1OS0xLjIwNCwwLTEuNjYzQzEuNzg5LDE2Ljg3MSwyLjUzNCwxNi44NzEsMi45OTMsMTcuMzN6Ii8+Cjwvc3ZnPgo=);
-            background-repeat: no-repeat;
-            background-position: 0 0;
-            -webkit-transition: -webkit-transform .3s ease-out 0s;
-            -moz-transition: -moz-transform .3s ease-out 0s;
-            -o-transition: -moz-transform .3s ease-out 0s;
-            -ms-transition: -ms-transform .3s ease-out 0s;
-            transition: transform .3s ease-out 0s;
-            -webkit-transform: rotate(0deg);
-            -moz-transform: rotate(0deg);
-            -o-transform: rotate(0deg);
-            -ms-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-
-        .navbar-minimal > .navbar-menu {
-            position: absolute;
-            top: -1000px;
-            left: 0px;
-            margin: 0px;
-            padding: 0px;
-            list-style: none;
-            z-index: 50;
-            background-color: rgb(51, 51, 51);
-            background-color: rgba(51, 51, 51, 0.8);
-        }
-        .navbar-minimal > .navbar-menu > li {
-            margin: 0px;
-            padding: 0px;
-            border-width: 0px;
-            height: 54px;
-        }
-        .navbar-minimal > .navbar-menu > li > a {
-            position: relative;
-            display: inline-block;
-            color: rgb(255, 255, 255);
-            padding: 20px 23px;
-            text-align: left;
-            cursor: pointer;
-            border-bottom: 1px solid rgb(81, 81, 81);
-            width: 100%;
-            text-decoration: none;
-            margin: 0px;
-        }
-
-        .navbar-minimal > .navbar-menu > li > a:last-child {
-            border-bottom-width: 0px;
-        }
-        .navbar-minimal > .navbar-menu > li > a:hover {
-            background-color: rgb(158, 202, 59);
-        }
-        .navbar-minimal > .navbar-menu > li > a > .glyphicon {
-            float: right;
-        }
-
-        .navbar-minimal.open {
-            width: 320px;
-        }
-
-        .navbar-minimal.open > .navbar-toggler > span {
-            background-position: 0 -16px;
-            -webkit-transform: rotate(-180deg);
-            -moz-transform: rotate(-180deg);
-            -o-transform: rotate(-180deg);
-            -ms-transform: rotate(-180deg);
-            transform: rotate(-180deg);
-        }
-
-        .navbar-minimal.open > .navbar-menu {
-            top: 60px;
-            width: 100%;
-            min-height: 100%;
-        }
-
-        @media (min-width: 768px) {
-            .navbar-minimal.open {
-                width: 60px;
-            }
-            .navbar-minimal.open > .navbar-menu {
-                overflow: visible;
-            }
-            .navbar-minimal > .navbar-menu > li > a > .desc {
-                position: absolute;
-                display: inline-block;
-                top: 50%;
-                left: 130px;
-                margin-top: -20px;
-                margin-left: 60px;
-                text-align: left;
-                white-space: nowrap;
-                padding: 10px 13px;
-                border-width: 0px !important;
-                background-color: rgb(51, 51, 51);
-                background-color: rgba(51, 51, 51, 0.8);
-                opacity: 0;
-            }
-            .navbar-minimal > .navbar-menu > li > a > .desc:after {
-                z-index: -1;
-                position: absolute;
-                top: 50%;
-                left: -10px;
-                margin-top: -10px;
-                content:'';
-                width: 0;
-                height: 0;
-                border-top: 10px solid transparent;
-                border-bottom: 10px solid transparent;
-                border-right: 10px solid rgb(51, 51, 51);
-                border-right-color: rgba(51, 51, 51, 0.8);
-            }
-            .navbar-minimal > .navbar-menu > li > a:hover > .desc {
-                left: 60px;
-                opacity: 1;
-            }
-        }
-        body {
-            margin: 30px 0px;
-        }
-        .progress {
-            position: relative;
-            height: 25px;
-        }
-        .progress > .progress-type {
-            position: absolute;
-            left: 0px;
-            font-weight: 800;
-            padding: 3px 30px 2px 10px;
-            color: rgb(255, 255, 255);
-            background-color: rgba(25, 25, 25, 0.2);
-        }
-        .progress > .progress-completed {
-            position: absolute;
-            right: 0px;
-            font-weight: 800;
-            padding: 3px 10px 2px;
-        }
-
-
-        /* added to  .nav */
-        .normal {
-            xheight: 75px; /* this causes drop down to lose color ??? */
-            -webkit-transition: 0.5s;
-            -moz-transition: 0.5s;
-            -ms-transition: 0.5s;
-            transition: 0.5s;
-        }
-
-        .normal .navbar-right {
-            padding-top: 12px;
-            -webkit-transition: 0.5s;
-            -moz-transition: 0.5s;
-            -ms-transition: 0.5s;
-            transition: 0.5s;
-        }
-        .navbar-brand {
-            padding: 0px !important;
-        }
-        .navbar-brand img {
-            padding: 5px;
-            max-height: 186px;
-            margin-left: 52px;
-            -webkit-transition: 0.5s;
-            -moz-transition: 0.5s;
-            -ms-transition: 0.5s;
-            transition: 0.5s;
-        }
-        .shrink {
-            height: 50px;
-            -webkit-transition: 0.5s;
-            -moz-transition: 0.5s;
-            -ms-transition: 0.5s;
-            transition: 0.5s;
-        }
-        .shrink .navbar-right {
-            padding-top: 0px;
-            -webkit-transition: 0.5s;
-            -moz-transition: 0.5s;
-            -ms-transition: 0.5s;
-            transition: 0.5s;
-        }
-        .shrink .navbar-brand img {
-            max-height: 50px;
-            -webkit-transition: 0.5s;
-            -moz-transition: 0.5s;
-            -ms-transition: 0.5s;
-            transition: 0.5s;
-        }
-
-        .gi-2x{font-size: 1em;}
-        .gi-3x{font-size: 1em;}
-        .gi-4x{font-size: 4em;}
-        .gi-5x{font-size: 2em;}
-
-
-        .expHeader {
-            -webkit-box-sizing: content-box;
-            -moz-box-sizing: content-box;
-            box-sizing: content-box;
-            border: none;
-            font: normal normal bold 16px Georgia, serif;
-            color: black;
-            text-indent: -1px;
-            -o-text-overflow: ellipsis;
-            text-overflow: ellipsis;
-            word-spacing: 2px;
-        }
-        .expHeader2 {
-            -webkit-box-sizing: content-box;
-            -moz-box-sizing: content-box;
-            box-sizing: content-box;
-            border: none;
-            font: normal 14px Georgia, serif;
-            color: rgba(10,4,4,1);
-            text-indent: 10px;
-            -o-text-overflow: ellipsis;
-            text-overflow: ellipsis;
-            word-spacing: 1px;
-        }
-
-        .expHeader3 {
-            -webkit-box-sizing: content-box;
-            -moz-box-sizing: content-box;
-            box-sizing: content-box;
-            border: none;
-            font: normal 14px "alegreya", Helvetica, sans-serif;
-            color: rgba(119,119,119,1);
-            text-indent: 10px;
-            -o-text-overflow: ellipsis;
-            text-overflow: ellipsis;
-            word-spacing: 1px;
-        }
-    </style>
 
 
 
@@ -789,12 +478,15 @@ http://span-tag.com/bootstrap-navbar/
         <div>
             <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 1cm; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;" border="0">
                 <tr>
-                    <td style="width: 70%;" class="expHeader">Auto Scheduler</td>
+                    <td style="width: 55%;" class="expHeader">Auto Scheduler</td>
                     <td style="width: 5%";></td>
                     <td style="width: 25%">September 2016 - Present</td>
+                    <td style="width: 20%" rowspan="3"><img src="images/ios.png" height="60px" width="60px"/><img
+                            src="images/node.png" height="60px" width="60px"/></td>
                 </tr>
+                <tr style="height: 10px"></tr>
                 <tr>
-                    <td class="expHeader3">In-network quality of experience prediction for encrypted video traffic</td>
+                    <td class="expHeader3">IOS application automating the meeting\event scheduling for an organisation in sync with apple calenders according to the participants free times. Deployed RESTApi over NodeJS to minimize the computations over mobile device.</td>
                     <td></td>
                     <td></td>
                 </tr>
@@ -804,14 +496,15 @@ http://span-tag.com/bootstrap-navbar/
             <hr>
             <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;" border="0">
                 <tr>
-                    <td style="width: 70%;" class="expHeader">Server Near By</td>
+                    <td style="width: 55%;" class="expHeader">Auto Scheduler</td>
                     <td style="width: 5%";></td>
                     <td style="width: 25%">September 2016 - Present</td>
+                    <td style="width: 20%" rowspan="3"><img src="images/ruby.png" height="60px" width="60px"/><img
+                            src="images/heroku.png" height="60px" width="60px"/></td>
                 </tr>
                 <tr style="height: 10px"></tr>
                 <tr>
-                    <td class="expHeader3">Contributed in building a machine learning model in predicting the user experienced video quality for encrypted video traffic targeting YouTube, Netflix, Vemio, Dailymotion
-                        under self defined video delivery patterns. Python, linux networking, weka, shell scripting are the technologies involved</td>
+                    <td class="expHeader3">Ruby on rails MVC application providing the general services enabling users and service providers a plotform to make bussiness over requirements. Application was made live over heroku</td>
                     <td > </td>
                     <td></td>
                 </tr>
@@ -821,14 +514,16 @@ http://span-tag.com/bootstrap-navbar/
             <hr>
             <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;" border="0">
                 <tr>
-                    <td style="width: 70%;" class="expHeader">Network Quality of service metrics classification</td>
+                    <td style="width: 55%;" class="expHeader">Network Quality of service metrics classification</td>
                     <td style="width: 5%";></td>
                     <td style="width: 25%">January 2016 - Present</td>
+                    <td style="width: 20%" rowspan="3"><img src="images/python.png" height="60px" width="60px"/><img
+                            src="images/r.png" height="60px" width="60px"/></td>
                 </tr>
                 <tr style="height: 10px"></tr>
                 <tr>
                     <td class="expHeader3">
-                        Worked as mid-level full stack application developer. Focused on C#.NET (VB) and Oracle technologies, including webservices and database management.
+                         Python program to classify quality of service metrics from network and transport layer headers used in modelling the Quality of experience metrics prediction system using R and Weka
                     </td>
                     <td > </td>
                     <td></td>
@@ -840,13 +535,15 @@ http://span-tag.com/bootstrap-navbar/
             <hr>
             <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville;" border="0">
                 <tr>
-                    <td style="width: 70%;" class="expHeader">Internal Inventory Sales Management</td>
+                    <td style="width: 55%;" class="expHeader">Internal Inventory Sales Management</td>
                     <td style="width: 5%";></td>
                     <td style="width: 25%">January 2016 - May 2016</td>
+                    <td style="width: 20%" rowspan="3"><img src="images/java.png" height="60px" width="60px"/><img
+                            src="images/logo-mysql-170x115.png" height="60px" width="60px"/></td>
                 </tr>
                 <tr>
                     <td class="expHeader3">
-                        Worked on application development and technical trainer for the organisation. My work is focues on JAVA, Linux, Shell technologies
+                        Organisation level internal web portal to manage its technical inventory sales. Developed over spring hibernate MVC
                     </td>
                     <td > </td>
                     <td></td>
@@ -857,13 +554,15 @@ http://span-tag.com/bootstrap-navbar/
             <hr>
             <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville;" border="0">
                 <tr>
-                    <td style="width: 70%;" class="expHeader">Video on Demand Quality Suggestion Model</td>
+                    <td style="width: 55%;" class="expHeader">Video on Demand Quality Suggestion Model</td>
                     <td style="width: 5%";></td>
                     <td style="width: 25%">January 2016 - May 2016</td>
+                    <td style="width: 20%" rowspan="3"><img src="images/python.png" height="60px" width="60px"/><img
+                            src="images/r.png" height="60px" width="60px"/></td>
                 </tr>
                 <tr>
                     <td class="expHeader3">
-                        Worked on application development and technical trainer for the organisation. My work is focues on JAVA, Linux, Shell technologies
+                        Machine lerning model suggesting the YouTube video views the best video quality according to their network conditions
                     </td>
                     <td > </td>
                     <td></td>
@@ -874,13 +573,14 @@ http://span-tag.com/bootstrap-navbar/
             <hr>
             <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville;" border="0">
                 <tr>
-                    <td style="width: 70%;" class="expHeader">Custom Congestion Control Protocol</td>
+                    <td style="width: 55%;" class="expHeader">Custom Congestion Control Protocol</td>
                     <td style="width: 5%";></td>
                     <td style="width: 25%">August 2015 - December 2015</td>
+                    <td style="width: 20%" rowspan="3"><img src="images/python.png" height="60px" width="60px"/>
                 </tr>
                 <tr>
                     <td class="expHeader3">
-                        Worked on application development and technical trainer for the organisation. My work is focues on JAVA, Linux, Shell technologies
+                        Transport layer congestion control protocol to out perform the legacy RHENO and TAHOE models
                     </td>
                     <td > </td>
                     <td></td>
@@ -891,13 +591,16 @@ http://span-tag.com/bootstrap-navbar/
             <hr>
             <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville;" border="0">
                 <tr>
-                    <td style="width: 70%;" class="expHeader">Online Investments Management System for Banks</td>
+                    <td style="width: 55%;" class="expHeader">Online Investments Management System for Banks</td>
                     <td style="width: 5%";></td>
-                    <td style="width: 25%">January 2016 - May 2016</td>
+                    <td style="width: 25%">February 2015 - April 2015</td>
+                    <td style="width: 20%" rowspan="3"><img src="images/angular.png" height="60px" width="60px"/>
+                        <img src="images/net.png" height="60px" width="60px"/>
+                    </td>
                 </tr>
                 <tr>
                     <td class="expHeader3">
-                        Worked on application development and technical trainer for the organisation. My work is focues on JAVA, Linux, Shell technologies
+                        Web portal to enable Bank of America customers to view their detailed transactions and investments.
                     </td>
                     <td > </td>
                     <td></td>
@@ -908,13 +611,16 @@ http://span-tag.com/bootstrap-navbar/
             <hr>
             <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville;" border="0">
                 <tr>
-                    <td style="width: 70%;" class="expHeader">Video on demand quality suggestion model</td>
+                    <td style="width: 55%;" class="expHeader">Environment level database cross comparison</td>
                     <td style="width: 5%";></td>
-                    <td style="width: 25%">January 2016 - May 2016</td>
+                    <td style="width: 25%">January 2015 - March 2015</td>
+                    <td style="width: 20%" rowspan="3"><img src="images/oracle.png" height="15px" width="60px"/>
+                        <img src="images/net.png" height="60px" width="60px"/>
+                    </td>
                 </tr>
                 <tr>
                     <td class="expHeader3">
-                        Worked on application development and technical trainer for the organisation. My work is focues on JAVA, Linux, Shell technologies
+                        An interface driven comparison tool to cross validate database object over different environment.
                     </td>
                     <td > </td>
                     <td></td>
@@ -925,13 +631,37 @@ http://span-tag.com/bootstrap-navbar/
             <hr>
             <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville;" border="0">
                 <tr>
-                    <td style="width: 70%;" class="expHeader">Video on demand quality suggestion model</td>
+                    <td style="width: 55%;" class="expHeader">Automated User Interface Test Automation</td>
                     <td style="width: 5%";></td>
-                    <td style="width: 25%">January 2016 - May 2016</td>
+                    <td style="width: 25%">January 2014 - March 2014</td>
+                    <td style="width: 20%" rowspan="3">
+                        <img src="images/net.png" height="60px" width="60px"/>
+                    </td>
                 </tr>
                 <tr>
                     <td class="expHeader3">
-                        Worked on application development and technical trainer for the organisation. My work is focues on JAVA, Linux, Shell technologies
+                        Automated user interface testing using CodedUI for .net applications
+                    </td>
+                    <td > </td>
+                    <td></td>
+                </tr>
+
+
+            </table>
+
+            <hr>
+            <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville;" border="0">
+                <tr>
+                    <td style="width: 55%;" class="expHeader">Bulk data loader</td>
+                    <td style="width: 5%";></td>
+                    <td style="width: 25%">January 2014 - March 2014</td>
+                    <td style="width: 20%" rowspan="3">
+                        <img src="images/net.png" height="60px" width="60px"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="expHeader3">
+                        Loader application to load large user dataset to oracle database with
                     </td>
                     <td > </td>
                     <td></td>
@@ -947,99 +677,27 @@ http://span-tag.com/bootstrap-navbar/
     <div style="height: 25px"></div>
     <div class="row">
         <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4" style="margin-left: 2cm; margin-right: 2.5cm; height: auto; width: auto">
-            <h1 class="title">Experience</h1>
+            <h1 class="title">Catch me</h1>
         </div>
     </div>
-    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background" style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%">
+    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background" style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%; background-color: black">
         <div>
             <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 1cm; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;" border="0">
                 <tr>
-                    <td style="width: 70%;" class="expHeader">Research Assistant under Professor Zubair Shafiq</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%">January 2016</td>
+                    <td style="width: 70%; color: aliceblue">Email</td>
+                    <td style="width: 70%; color: aliceblue">Social</td>
+
                 </tr>
                 <tr>
-                    <td class="expHeader2" >University of Iowa  (In colloboration with Huawei Technologies. USA)</td>
-                    <td></td>
-                    <td>Progress</td>
+                    <td  ><a href="mailto:sai-kalyanmoguloju@uiowa.edu" target="_top">sai-kalyanmoguloju@uiowa.edu</a></td>
                 </tr>
                 <tr>
                     <td class="expHeader3">In-network quality of experience prediction for encrypted video traffic</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-
-            </table>
-            <hr>
-            <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 70%;" class="expHeader">Research Intern</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%">May 2016 - August 2016</td>
-                </tr>
-                <tr>
-                    <td class="expHeader2" >Huawei Technologies - Wireless Networks</td>
-                    <td></td>
-                    <td>Complete</td>
-                </tr>
-                <tr style="height: 10px"></tr>
-                <tr>
-                    <td class="expHeader3">Contributed in building a machine learning model in predicting the user experienced video quality for encrypted video traffic targeting YouTube, Netflix, Vemio, Dailymotion
-                        under self defined video delivery patterns. Python, linux networking, weka, shell scripting are the technologies involved</td>
-                    <td > </td>
+                    <td><a href="#projects" class="animate" style="height: 100px">
+                        
+                    </a></td>
                     <td></td>
                 </tr>
-
-
-            </table>
-            <hr>
-            <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 70%;" class="expHeader">Senior Software Developer</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%">June 2012 - July 2015</td>
-                </tr>
-                <tr>
-                    <td class="expHeader2" >TATA Consulancy Services - Bank of America</td>
-                    <td></td>
-                    <td>Complete</td>
-                </tr>
-                <tr style="height: 10px"></tr>
-                <tr>
-                    <td class="expHeader3">
-                        Worked as mid-level full stack application developer. Focused on C#.NET (VB) and Oracle technologies, including webservices and database management.
-                    </td>
-                    <td > </td>
-                    <td></td>
-                </tr>
-
-
-            </table>
-
-            <hr>
-            <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 70%;" class="expHeader">Application Developer Intern</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%">June 2010 - June 2012</td>
-                </tr>
-                <tr>
-                    <td class="expHeader2" >Swecha Organisation - Free Software Foundation</td>
-                    <td></td>
-                    <td>Complete</td>
-                </tr>
-                <tr style="height: 10px"></tr>
-                <tr>
-                    <td class="expHeader3">
-                        Worked on application development and technical trainer for the organisation. My work is focues on JAVA, Linux, Shell technologies
-                    </td>
-                    <td > </td>
-                    <td></td>
-                </tr>
-
-
-            </table>
         </div>
     </div>
 
