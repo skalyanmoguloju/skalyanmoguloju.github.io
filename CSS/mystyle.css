@@ -266,6 +266,28 @@ body {
 .gi-5x{font-size: 2em;}
 
 
+.titleHead {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: none;
+    font: normal 16px/1 "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color: rgba(244,244,244,1);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+}
+
+.email {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: none;
+    font: normal 14px/1 "Trebuchet MS", Helvetica, sans-serif;
+    color: rgba(255,255,255,1);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+}
+
 .expHeader {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
