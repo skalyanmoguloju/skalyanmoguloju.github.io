@@ -325,3 +325,14 @@ body {
     text-overflow: ellipsis;
     word-spacing: 1px;
 }
+.expHeader4 {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: none;
+    font: normal 14px "alegreya", Helvetica, sans-serif;
+    color: rgba(119, 119, 119, 1);
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    word-spacing: 1px;
+}
