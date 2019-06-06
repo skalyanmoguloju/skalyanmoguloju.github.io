@@ -1,993 +1,1179 @@
 <!-- Main -->
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="CSS/mystyle.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="CSS/mystyle.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script>
+    $(document).ready(function () {
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-    <script>
-
-
-        $(document).ready(function(){
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-97694986-1', 'auto');
-            ga('send', 'pageview');
-            ga('set', 'userId', 'UA-97694986-1'); // Set the user ID using signed-in user_id.
-            // Add smooth scrolling to all links
-            $("a").on('click', function(event) {
-
-                // Make sure this.hash has a value before overriding default behavior
-                if (this.hash !== "") {
-                    // Prevent default anchor click behavior
-                    event.preventDefault();
-
-                    // Store hash
-                    var hash = this.hash;
-
-                    // Using jQuery's animate() method to add smooth page scroll
-                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    }, 800, function(){
-
-                        // Add hash (#) to URL when done scrolling (default click behavior)
-                        window.location.hash = hash;
-                    });
-                } // End if
-            });
-        });
-
-        $(window).scroll(function() {
-            if ($(document).scrollTop() > 150) {
-                $('.navbar').addClass('shrink');
-            }
-            else {
-                $('.navbar').removeClass('shrink'); }
-        });
-
-        $(function () {
-            /* START OF DEMO JS - NOT NEEDED */
-            if (window.location == window.parent.location) {
-                $('#fullscreen').html('<span class="glyphicon glyphicon-resize-small"></span>');
-                $('#fullscreen').attr('href', 'http://bootsnipp.com/mouse0270/snippets/PbDb5');
-                $('#fullscreen').attr('title', 'Back To Bootsnipp');
-            }
-            $('#fullscreen').on('click', function(event) {
-                event.preventDefault();
-                window.parent.location =  $('#fullscreen').attr('href');
-            });
-            $('#fullscreen').tooltip();
-            /* END DEMO OF JS */
-
-            $('.navbar-toggler').on('click', function(event) {
-                event.preventDefault();
-                $(this).closest('.navbar-minimal').toggleClass('open');
-            })
-        });
-
-
-        function scrollTo(to, duration) {
-            if (document.body.scrollTop == to) return;
-            var diff = to - document.body.scrollTop;
-            var scrollStep = Math.PI / (duration / 10);
-            var count = 0, currPos;
-            start = element.scrollTop;
-            scrollInterval = setInterval(function(){
-                if (document.body.scrollTop != to) {
-                    count = count + 1;
-                    currPos = start + diff * (0.5 - 0.5 * Math.cos(count * scrollStep));
-                    document.body.scrollTop = currPos;
-                }
-                else { clearInterval(scrollInterval); }
-            },10);
+      ga('create', 'UA-97694986-1', 'auto');
+      ga('send', 'pageview');
+      ga('set', 'userId', 'UA-97694986-1');
+      $("a").on('click', function (event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+          var hash = this.hash;
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function () {
+            window.location.hash = hash;
+          });
         }
-
-        function test(elID)
-        {
-            var dest = document.getElementById(elID);
-            scrollTo(dest.offsetTop, 500);
+      });
+    });
+    $(window).scroll(function () {
+      if ($(document).scrollTop() > 150) {
+        $('.navbar').addClass('shrink');
+      }
+      else {
+        $('.navbar').removeClass('shrink');
+      }
+    });
+    $(function () {
+      if (window.location == window.parent.location) {
+        $('#fullscreen').html('<span class="glyphicon glyphicon-resize-small"></span>');
+        $('#fullscreen').attr('href', 'http://bootsnipp.com/mouse0270/snippets/PbDb5');
+        $('#fullscreen').attr('title', 'Back To Bootsnipp');
+      }
+      $('#fullscreen').on('click', function (event) {
+        event.preventDefault();
+        window.parent.location = $('#fullscreen').attr('href');
+      });
+      $('#fullscreen').tooltip();
+      $('.navbar-toggler').on('click', function (event) {
+        event.preventDefault();
+        $(this).closest('.navbar-minimal').toggleClass('open');
+      })
+    });
+    function scrollTo(to, duration) {
+      if (document.body.scrollTop == to) return;
+      var diff = to - document.body.scrollTop;
+      var scrollStep = Math.PI / (duration / 10);
+      var count = 0, currPos;
+      start = element.scrollTop;
+      scrollInterval = setInterval(function () {
+        if (document.body.scrollTop != to) {
+          count = count + 1;
+          currPos = start + diff * (0.5 - 0.5 * Math.cos(count * scrollStep));
+          document.body.scrollTop = currPos;
         }
+        else {
+          clearInterval(scrollInterval);
+        }
+      }, 10);
+    }
 
-
-    </script>
-
-
-
-    <title> Sai Kalyan Moguloju</title>
-
+    function test(elID) {
+      var dest = document.getElementById(elID);
+      scrollTo(dest.offsetTop, 500);
+    }
+  </script>
+  <title> Sai Kalyan Moguloju</title>
 </head>
 <body>
-
-<div id="main">
-
-    <!--
-    Camera image by:
-    https://www.iconfinder.com/jackietran
-    -->
-
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top normal" role="navigation">
-
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><img class="img-responsive" src="images/profile.jpg" alt=""></a>
-            </div>
-            <div id="navbar" class="collapse navbar-collapse">
-
-
-            </div>
-            <!--/.nav-collapse -->
-        </div>
-        <!--/.contatiner -->
-    </nav>
-
-
+<div id="main"><nav class="navbar navbar-inverse navbar-fixed-top normal" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img class="img-responsive" src="images/profile.jpg" alt=""></a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+      </div>
     </div>
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="container" style="margin-left: 3cm; width: 1320px; margin-right: 0.5cm; background-image: url('images/headback.jpg')">
-        <div class="container" style=" align-content: center;margin-left: 1.5cm; margin-right: 0.5cm">
-            <div style="margin-top: 4cm;margin-bottom: 4cm;  background-color: dimgrey; width: 100%">
-                <br>
-                <h2 style="color: white; font-size: 100px; text-align: center; font-family: Baskerville;">Sai <small style="color: aliceblue">Kalyan Moguloju</small></h2>
-                <p class="titleHead" style="text-align: center;">Graduate Student from University of Iowa - Computer Science    |     <a class ="email"  href="mailto:kalyansaim@gmail.com" target="_top"><span class="glyphicon glyphicon-envelope"></span>kalyansaim@gmail.com</a>
-                </p>
-                <div style="height: 20px"></div>
-            </div>
-
-
-            </p>
-        </div>
+  </nav>
+</div>
+<div class="container"
+     style="margin-left: 3cm; width: 1320px; margin-right: 0.5cm; background-image: url('images/headback.jpg')">
+  <div class="container" style=" align-content: center;margin-left: 1.5cm; margin-right: 0.5cm">
+    <div style="margin-top: 4cm;margin-bottom: 4cm;  background-color: dimgrey; width: 100%">
+      <br>
+      <h2 style="color: white; font-size: 100px; text-align: center; font-family: Baskerville;">Sai
+        <small style="color: aliceblue">Kalyan Moguloju</small>
+      </h2>
+      <p class="titleHead" style="text-align: center;">Associate Senior Software Engineer - Cerner Corporation USA | <a
+          class="email" href="mailto:kalyansaim@gmail.com" target="_top"><span
+          class="glyphicon glyphicon-envelope"></span>&nbspkalyansaim@gmail.com</a>
+      </p>
+      <div style="height: 20px"></div>
     </div>
-
-
-
-
-<nav class="navbar navbar-fixed-left navbar-minimal animate open" role="navigation" style="margin-top: 1cm; width: 100px">
-
-    <ul class="navbar-menu animate open">
-        <li style="height: 100px">
-            <a href="#aboutme" class="animate" style="height: 100px" >
-                <span class="desc animate"> About me </span>
-                <span class="glyphicon glyphicon-user gi-5x"></span>
-            </a>
-        </li>
-
-        <li style="height: 100px">
-            <a href="#research" class="animate" style="height: 100px">
-                <span class="desc animate"> Research </span>
-                <span class="glyphicon glyphicon-qrcode gi-5x"></span>
-            </a>
-        </li>
-        <li style="height: 100px">
-            <a href="#skills" class="animate" style="height: 100px">
-                <span class="desc animate"> Skills </span>
-                <span class="glyphicon glyphicon-record gi-5x"></span>
-            </a>
-        </li>
-        <li style="height: 100px">
-            <a href="#experience" class="animate" style="height: 100px;">
-                <span style="vertical-align: middle" class="desc animate"> Experience </span>
-                <span class="glyphicon glyphicon-king gi-5x"></span>
-            </a>
-        </li>
-        <li style="height: 100px">
-            <a href="#projects" class="animate" style="height: 100px">
-                <span class="desc animate"> Projects </span>
-                <span class="glyphicon glyphicon-stats gi-5x"></span>
-            </a>
-        </li>
-        <li style="height: 100px">
-            <a href="#education" class="animate" style="height: 100px">
-                <span class="desc animate"> Education </span>
-                <span class="glyphicon glyphicon-education gi-5x"></span>
-            </a>
-        </li>
-        <li style="height: 100px">
-            <a href="#contactme" class="animate" style="height: 100px">
-                <span class="desc animate"> How To Reach Us </span>
-                <span class="glyphicon glyphicon-comment gi-5x"></span>
-            </a>
-        </li>
-    </ul>
+    </p>
+  </div>
+</div>
+<nav class="navbar navbar-fixed-left navbar-minimal animate open" role="navigation"
+     style="margin-top: 1cm; width: 100px">
+  <ul class="navbar-menu animate open">
+    <li style="height: 100px">
+      <a href="#aboutme" class="animate" style="height: 100px">
+        <span class="desc animate"> About me </span>
+        <span class="glyphicon glyphicon-user gi-5x"></span>
+      </a>
+    </li>
+    <li style="height: 100px">
+      <a href="#experience" class="animate" style="height: 100px;">
+        <span style="vertical-align: middle" class="desc animate"> Experience </span>
+        <span class="glyphicon glyphicon-king gi-5x"></span>
+      </a>
+    </li>
+    <li style="height: 100px">
+      <a href="#skills" class="animate" style="height: 100px">
+        <span class="desc animate"> Skills </span>
+        <span class="glyphicon glyphicon-record gi-5x"></span>
+      </a>
+    </li>
+    <li style="height: 100px">
+      <a href="#education" class="animate" style="height: 100px">
+        <span class="desc animate"> Education </span>
+        <span class="glyphicon glyphicon-education gi-5x"></span>
+      </a>
+    </li>
+    <li style="height: 100px">
+      <a href="#projects" class="animate" style="height: 100px">
+        <span class="desc animate"> Projects </span>
+        <span class="glyphicon glyphicon-stats gi-5x"></span>
+      </a>
+    </li>
+    <li style="height: 100px">
+      <a href="#research" class="animate" style="height: 100px">
+        <span class="desc animate"> Research </span>
+        <span class="glyphicon glyphicon-qrcode gi-5x"></span>
+      </a>
+    </li>
+    <li style="height: 100px">
+      <a href="#contactme" class="animate" style="height: 100px">
+        <span class="desc animate"> How To Reach Us </span>
+        <span class="glyphicon glyphicon-comment gi-5x"></span>
+      </a>
+    </li>
+  </ul>
 </nav>
-<!-- START OF HTML FOR DEMO - NOT NEEDED -->
-<div id = "aboutme" class="container" style="margin-left: 2.5cm;">
-    <div style="height: 25px"></div>
-    <div class="row">
-        <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4" style="margin-left: 2cm; margin-right: 2.5cm; height: auto; width: auto">
-            <h1 class="title">About me</h1>
-        </div>
+<div id="aboutme" class="container" style="margin-left: 2.5cm;">
+  <div style="height: 25px"></div>
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4"
+         style="margin-left: 2cm; margin-right: 2.5cm; height: auto; width: auto">
+      <h1 class="title">About me</h1>
     </div>
-    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background" style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%">
-
-        <table border="0" style=" color: black;width: 100%;">
-            <tr>
-                <td style="width: 70%">
-                    <p style=" margin-top: 1cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville">Full-Stack software developer with professional experience specialized in versatile software development, production
-                            management and testing. Creative, flexible with proven analytical skills. Adept at researching and crafting best technology
-                            driven application focusing on wide range of clients and products.
-                    </p>
-                    <p style=" margin-top: 1cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville">
-                        Research engineer with solid and professional experience in all facets of networking and quality of experience monitorin.
-                    </p>
-                </td>
-                <td style="width: 5%"></td>
-
-                <td style="width: 25%">
-                    <div >
-                        <p style="text-align: center; font-size: small"><a href="https://drive.google.com/open?id=0B4phI9upKpzDRUNwV0gyeXhjQ2s"><i class="icon-file"></i> <span class="glyphicon glyphicon-file"></span>DOWNLOAD COMPLETE CV</a>
-                            <sm></sm>
-                        </p>
-                        <div >
-                            <p style="text-align: center; font-size: small"><a href="https://drive.google.com/open?id=0B4phI9upKpzDNDdrNG9GT0JSRnc"><i class="icon-file"></i><span class="glyphicon glyphicon-file"></span>DOWNLOAD RESUME</a>
-                            </p>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-</div>
-
-<div id = "research" class="container" style="margin-left: 2.5cm;">
-    <div style="height: 25px"></div>
-    <div class="row">
-        <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4" style="margin-left: 2cm; margin-right: 2.5cm; height: auto; width: auto">
-            <h1 class="title">Research</h1>
-        </div>
-    </div>
-    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background" style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%">
-        <div>
-            <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 1cm; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 70%;" class="expHeader">Video Quality of Experience Prediction</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%">January 2016 - May 2017</td>
-                </tr>
-                <tr>
-                    <td class="expHeader2" >Professor Zubair Shafiq, University of Iowa</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr style="height: 15px;"></tr>
-                <tr>
-                    <td colspan="3" style=" margin-top: 1cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville">In depth study on transport and network layer protocols to correlate encrypted application layer protocol targeting to predict user's quality of experience.
-
-
-                    </td>
-                </tr>
-                </tr>
-                <tr style="height: 15px;"></tr>
-                <tr>
-                <tr>
-                    <td style=" margin-top: 1cm; margin-bottom: 1cm; font-size: medium; font-family: Baskerville">
-                        <ul>
-                            <li>Successfully proposed and built Machine Learning models to predict quality of experience like video quality, buffering events, etc. by analysis the network and transport layer header information.
-                            </li>
-                            <li>Developed scripts to extract video player ground truth from the web browser using browser extensions and java script injections.
-                            </li>
-                            <li>Performed feature extraction from network traces using PCAP and TCPDUMP
-                            </li>
-                            <li>Experience with data analytics, including classification, analysis, modelling.
-                            </li>
-                        </ul>
-
-                    </td>
-                    <td style="width: 5%"></td>
-
-                    <td style="width: 25%">
-                        <div >
-                            <p style="text-align: center; font-size: small"><a href="https://drive.google.com/file/d/0B4phI9upKpzDMF9VR3ZUb0tJaXM/view?usp=sharing"><i class="icon-file"></i> <span class="glyphicon glyphicon-file"></span>DOWNLOAD Report</a>
-                                <sm></sm>
-                            </p>
-
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td colspan="3" style=" margin-top: 1cm; margin-bottom: 1cm; font-size: large;color: darkblue; font-family: Baskerville">
-                        Technologies
-                    </td>
-
-                </tr>
-                <tr style="height: 10px"></tr>
-                <tr>
-                    <td>
-                        <img src="images/python.png" height="60px" width="60px"/>
-                        <img src="images/r.png" height="60px" width="60px"/>
-                        <img src="images/js.png" height="60px" width="60px"/>
-                        <img src="images/matlab.png" height="60px" width="60px"/>
-                        <img src="images/Selenium.png" height="60px" width="60px"/>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-</div>
-
-<div id = "skills" class="container" style="margin-left: 2.5cm;">
-    <div style="height: 25px"></div>
-    <div class="row">
-        <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4" style="margin-left: 2cm; margin-right: 2.5cm; height: auto; width: auto">
-            <h1 class="title">Skills</h1>
-        </div>
-    </div>
-    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background" style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%">
-        <div class="container" style="width: 100%">
-            <table border="0" style="width: 100%">
-                <tr>
-                    <td style="width: 45%">
-                        <div class="row">
-                            <div class="progress" >
-                                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
-                                    <span class="sr-only">80% Complete</span>
-                                </div>
-                                <span class="progress-type">C# . NET</span>
-                                <span class="progress-completed"></span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
-                                    <span class="sr-only">65% Complete (success)</span>
-                                </div>
-                                <span class="progress-type">Python</span>
-                                <span class="progress-completed"></span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                    <span class="sr-only">60% Complete (info)</span>
-                                </div>
-                                <span class="progress-type">Java</span>
-                                <span class="progress-completed"></span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                    <span class="sr-only">80% Complete (warning)</span>
-                                </div>
-                                <span class="progress-type">Oracle</span>
-                                <span class="progress-completed"></span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                    <span class="sr-only">40% Complete (danger)</span>
-                                </div>
-                                <span class="progress-type">Swift</span>
-                                <span class="progress-completed"></span>
-                            </div>
-                        </div>
-                    </td>
-                    <td style="width: 10%">
-
-                    </td>
-                    <td style="width: 45%">
-                        <div class="row">
-                            <div class="progress" >
-                                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
-                                    <span class="sr-only">75% Complete</span>
-                                </div>
-                                <span class="progress-type">HTML/CSS/Java Script</span>
-                                <span class="progress-completed"></span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                    <span class="sr-only">60% Complete (success)</span>
-                                </div>
-                                <span class="progress-type">AnglarJS</span>
-                                <span class="progress-completed"></span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                    <span class="sr-only">80% Complete (info)</span>
-                                </div>
-                                <span class="progress-type">MySQL</span>
-                                <span class="progress-completed"></span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-                                    <span class="sr-only">50% Complete (warning)</span>
-                                </div>
-                                <span class="progress-type">C</span>
-                                <span class="progress-completed"></span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
-                                    <span class="sr-only">30% Complete (danger)</span>
-                                </div>
-                                <span class="progress-type">NodeJS</span>
-                                <span class="progress-completed"></span>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-
-        </div>
-    </div>
-
-</div>
-
-<div id = "experience" class="container" style="; margin-left: 2.5cm; ">
-    <div style="height: 25px"></div>
-    <div class="row">
-        <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4" style="margin-left: 2cm; margin-right: 2.5cm; height: auto; width: auto">
-            <h1 class="title">Experience</h1>
-        </div>
-    </div>
-    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background" style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%">
-        <div>
-            <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 70%;" class="expHeader">Research and Development Intern</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%">May 2016 - August 2016</td>
-                </tr>
-                <tr>
-                    <td class="expHeader2" >Huawei Technologies, Co. Ltd - Wireless Networks</td>
-                    <td></td>
-                    <td>Complete</td>
-                </tr>
-                <tr style="height: 10px"></tr>
-                <tr>
-                    <td class="expHeader3">Contributed in building a machine learning model in predicting the user experienced video quality for encrypted video traffic targeting YouTube, Netflix, Vimeo, Dailymotion
-                        under self defined video delivery patterns. Python, linux networking, weka, shell scripting are the technologies involved</td>
-                    <td > </td>
-                    <td></td>
-                </tr>
-
-
-            </table>
-            <hr>
-            <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 70%;" class="expHeader">Senior Software Developer</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%">June 2012 - July 2015</td>
-                </tr>
-                <tr>
-                    <td class="expHeader2" >TATA Consulancy Services - Bank of America</td>
-                    <td></td>
-                    <td>Complete</td>
-                </tr>
-                <tr style="height: 10px"></tr>
-                <tr>
-                    <td class="expHeader3">
-                        Built web and standalone applications to handle tax reporting processes with proven skills in analyzing and designing technical solutions with strong algorithms & data structures background. Skilled full stack development in deploying potential value adds with promising quality and time line also lead a team from offshore with included responsibilities of client meetings, application designing, scheduling, project management, documentation, etc., Certified with project management training
-                    </td>
-                    <td > </td>
-                    <td></td>
-                </tr>
-
-
-            </table>
-
-            <hr>
-            <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 70%;" class="expHeader">Application Developer Intern</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%">June 2010 - June 2012</td>
-                </tr>
-                <tr>
-                    <td class="expHeader2" >Swecha Organisation - Free Software Foundation</td>
-                    <td></td>
-                    <td>Complete</td>
-                </tr>
-                <tr style="height: 10px"></tr>
-                <tr>
-                    <td class="expHeader3">
-                        Software developer, intern, responsible in managing organization web portal; contribution to Linux operating system localization and web based learning platform for students.
-                    </td>
-                    <td > </td>
-                    <td></td>
-                </tr>
-
-
-            </table>
-        </div>
-    </div>
-
-</div>
-
-
-
-<div id = "projects" class="container" style="; margin-left: 2.5cm; ">
-    <div style="height: 25px"></div>
-    <div class="row">
-        <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4" style="margin-left: 2cm; margin-right: 2.5cm; height: auto; width: auto">
-            <h1 class="title">Projects</h1>
-        </div>
-    </div>
-    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background" style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%">
-        <div>
-            <h3>Professional</h3>
-            <hr>
-            <table style=" color: black;width: 100%; margin-right: 7cm;  font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 55%;" class="expHeader">Bank of America Tax Reporting System Web</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%"></td>
-                    <td style="width: 20%" rowspan="3"><img src="images/angular.png" height="60px" width="60px"/>
-                        <img src="images/net.png" height="60px" width="60px"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="expHeader4">
-                        <ul>
-                            <li>
-                                Web prototype enabling bank employees to view customers detailed transactions with respect to their investments and taxes.
-                            </li>
-                            <li>
-                                A mainframe to web migration project with many design challenges including security, usability and efficiency.
-                            </li>
-                        </ul>
-                    </td>
-                    <td > </td>
-                    <td valign="top" style="font-size: medium">Feb 2015 - Apr 2015</td>
-                </tr>
-
-
-            </table>
-            <hr>
-            <table style=" color: black;width: 100%; margin-right: 7cm; font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 55%;" class="expHeader">Environment level database cross comparison for Oracle </td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%"></td>
-                    <td style="width: 20%" rowspan="3"><img src="images/oracle.png" height="15px" width="60px"/>
-                        <img src="images/net.png" height="60px" width="60px"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="expHeader4">
-                        <ul>
-                            <li>
-                                An interface driven database comparison tool to cross validate schema objects across different environment.
-                            </li>
-                            <li>
-                                Successfully deployed reporting mechanism to extract results before and after every data migration to check the consistency.
-                            </li>
-                        </ul>
-                    </td>
-                    <td > </td>
-                    <td valign="top" style="font-size: medium">Jan 2015 - Mar 2015</td>
-                </tr>
-
-
-            </table>
-            <hr>
-            <table style=" color: black;width: 100%; margin-right: 7cm;  font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 55%;" class="expHeader">Oracle Custom data definition tool</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%"></td>
-                    <td style="width: 20%" rowspan="3"><img src="images/oracle.png" height="15px" width="60px"/>
-                        <img src="images/net.png" height="60px" width="60px"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="expHeader4">
-                        <ul>
-                            <li>
-                                An innovative value-add allowing developers to know the detailed structure of the database objects and their dependencies.
-                            </li>
-                            <li>
-                                This was one of my great asset; considered as a best innovation and the model was implemented by all Oracle based applications throughout the domain
-                            </li>
-                        </ul>
-                    </td>
-                    <td > </td>
-                    <td valign="top" style="font-size: medium">Jan 2015 - Mar 2015</td>
-                </tr>
-
-
-            </table>
-            <hr>
-            <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm;  font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 55%;" class="expHeader">Automated User Interface Test Automation</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%"></td>
-                    <td style="width: 20%" rowspan="3">
-                        <img src="images/net.png" height="60px" width="60px"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="expHeader4">
-                        <ul>
-                            <li>
-                                Microsoft came up with CodedUI to automate user interface testing, a great learning chance to explore this automation engine.
-                            </li>
-                            <li>
-                                Provided automation scripts to the testing team to test the UI and as an additional feature implemented an interface enabling testers to select the script to run along with the custom driven testing data.
-                            </li>
-                        </ul>
-                    </td>
-                    <td > </td>
-                    <td valign="top" style="font-size: medium">Jan 2014 - Mar 2014</td>
-                </tr>
-
-
-            </table>
-            <hr>
-            <table style=" color: black;width: 100%; margin-right: 7cm;  font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 55%;" class="expHeader">Bulk data loader to Oracle </td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%"></td>
-                    <td style="width: 20%" rowspan="3">
-                        <img src="images/net.png" height="60px" width="60px"/><img src="images/oracle.png" height="15px" width="60px"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="expHeader4">
-                        <ul>
-                            <li>
-                                Achieved an efficient approach to load complex data from external sources to Oracle database with plugged custom data validation system.
-                            </li>
-                            <li>
-                                Project was implemented on the ELT background with custom components.
-                            </li>
-                            <li>
-                                Achievement: Awarded as the best project with zero defects during system and unit testing.
-                            </li>
-                        </ul>
-                    </td>
-                    <td > </td>
-                    <td valign="top" style="font-size: medium">Jan 2014 - Mar 2014</td>
-                </tr>
-            </table>
-            <hr>
-            <table style=" color: black;width: 100%; margin-right: 7cm;  font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 55%;" class="expHeader">Bank of America Auto reporting</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%"></td>
-                    <td style="width: 20%" rowspan="3">
-                        <img src="images/net.png" height="60px" width="60px"/><img src="images/oracle.png" height="15px" width="60px"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="expHeader4">
-                        <ul>
-                            <li>
-                                Auto-sys application to generate reports like summary, detail, edit, etc. for all transaction made by the customers on a daily basis. These reports help employees to tracks financial changes in global investment markets.
-                            </li>
-                        </ul>
-                    </td>
-                    <td > </td>
-                    <td valign="top" style="font-size: medium">Jan 2013 - Mar 2014</td>
-                </tr>
-            </table>
-            <hr>
-            <table style=" color: black;width: 100%; margin-right: 7cm;  font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 55%;" class="expHeader">Bank of America State and Federal tax reporting</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%"></td>
-                    <td style="width: 20%" rowspan="3">
-                        <img src="images/net.png" height="60px" width="60px"/><img src="images/oracle.png" height="15px" width="60px"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="expHeader4">
-                        <ul>
-                            <li>
-                                Web and stand-alone applications for Bank of America employees to automate federal and state tax reporting and tracking to Internal Revenue System (IRS).
-                            </li>
-                            <li>
-                                Project was integrated with crystal reporting and admin level tools to handle user access managements
-                            </li>
-                        </ul>
-                    </td>
-                    <td > </td>
-                    <td valign="top" style="font-size: medium">Jan 2013 - Jun 2015</td>
-                </tr>
-            </table>
-            <hr>
-
-            <h3>Selected and Personal Projects</h3>
-            <hr>
-            <table style=" color: black;width: 100%; margin-right: 7cm;  font-size: large; font-family: Baskerville;" border="0">
-            <tr>
-                <td style="width: 55%;" class="expHeader">Labalytics</td>
-                <td style="width: 5%";></td>
-                <td style="width: 25%"></td>
-                <td style="width: 20%" rowspan="3"><img src="images/angular2.png" height="60px" width="60px"/><img
-                        src="images/play.jpg" height="80px" width="70px"/></td>
-            </tr>
-            <tr style="height: 10px"></tr>
-            <tr>
-                <td class="expHeader4">
-                    <ul>
-                        <li>
-                            A complete web portal to manage technical laboratories maintained by self-employed owners.
-                        </li>
-                        <li>
-                            Resource utilization was the main moto behind this project. Students and users can schedule an online appointment to utilize the equipment.
-                        </li>
-                        <li>
-                            Additionally, system is integrated with billing and utilization reports, notification, scheduling features.
-                        </li>
-                    </ul>
-                </td>
-                <td></td>
-                <td valign="top" style="font-size: medium">Jan 2017 - May 2017</td>
-            </tr>
-
-
-        </table>
-            <hr>
-            <table style=" color: black;width: 100%; margin-right: 7cm; font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 55%;" class="expHeader">Auto Scheduler</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%"></td>
-                    <td style="width: 20%" rowspan="3"><img src="images/ios.png" height="45px" width="60px"/><img
-                            src="images/node.png" height="60px" width="60px"/></td>
-                </tr>
-                <tr style="height: 10px"></tr>
-                <tr>
-                    <td class="expHeader4">
-                        <ul>
-                            <li>
-                                iOS application to automate meeting scheduling process.
-                            </li>
-                            <li>
-                                Meeting creator need to give out the meeting time line and participant details, application will take care of pulling up the common free times between participants and give suggestions.
-                            </li>
-                            <li>
-                                Application will also update the users calendar with the event details.
-                            </li>
-                        </ul>
-                    </td>
-                    <td></td>
-                    <td valign="top" style="font-size: medium">Sep 2016 - Jan 2017</td>
-                </tr>
-
-
-            </table>
-            <hr>
-            <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm;font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 55%;" class="expHeader">Services Nearby</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%"></td>
-                    <td style="width: 20%" rowspan="3"><img src="images/ruby.png" height="60px" width="60px"/><img
-                            src="images/heroku.png" height="60px" width="60px"/></td>
-                </tr>
-                <tr style="height: 10px"></tr>
-                <tr>
-                    <td class="expHeader4">
-                        <ul>
-                            <li>
-                                Finding things around the unknown places was the tagline behind this project.</li>
-                            <li>
-                                Achieved an integrated web platform where users can avail services by searching them against their requirements and make a service deal with the service provide.</li>
-                            <li>
-                                It also targets service providers by providing visions for their business marketing.</li>
-                            <li>
-                                Integrated with service rating and review mechanism to ensure best business standards
-
-                            </li>
-                        </ul>
-                    </td>
-                    <td > </td>
-                    <td valign="top" style="font-size: medium">Sep 2016 - Jan 2017</td>
-                </tr>
-
-
-            </table>
-            <hr>
-            <!--<table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;" border="0">-->
-                <!--<tr>-->
-                    <!--<td style="width: 55%;" class="expHeader">Network Quality of service metrics classification</td>-->
-                    <!--<td style="width: 5%";></td>-->
-                    <!--<td style="width: 25%">Jan 2016 - Present</td>-->
-                    <!--<td style="width: 20%" rowspan="3"><img src="images/python.png" height="60px" width="60px"/><img-->
-                            <!--src="images/r.png" height="60px" width="60px"/></td>-->
-                <!--</tr>-->
-                <!--<tr style="height: 10px"></tr>-->
-                <!--<tr>-->
-                    <!--<td class="expHeader3">-->
-                        <!--Python program to classify quality of service metrics from network and transport layer headers used in modelling the Quality of experience metrics prediction system using R and Weka-->
-                    <!--</td>-->
-                    <!--<td > </td>-->
-                    <!--<td></td>-->
-                <!--</tr>-->
-
-
-            <!--</table>-->
-
-            <!--<hr>-->
-            <table style=" color: black;width: 100%; margin-right: 7cm; font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 55%;" class="expHeader">Inventory Management System</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%"></td>
-                    <td style="width: 20%" rowspan="3"><img src="images/java.png" height="60px" width="60px"/><img
-                            src="images/logo-mysql-170x115.png" height="60px" width="60px"/></td>
-                </tr>
-                <tr>
-                    <td class="expHeader4">
-                        <ul>
-                            <li>
-                                Organization would always need a system to take care of inventory requirements.
-                            </li>
-                            <li>
-                                Designed an internal web portal allowing employees to check out for the inventory deals given by the authorized sales team.
-                            </li>
-                            <li>
-                                Additionally, application is availed with quality management system.
-                            </li>
-                        </ul>
-                       </td>
-                    <td > </td>
-                    <td valign="top" style="font-size: medium">Jan 2016 - May 2016</td>
-                </tr>
-
-
-            </table>
-            <hr>
-            <!--<table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville;" border="0">-->
-                <!--<tr>-->
-                    <!--<td style="width: 55%;" class="expHeader">Video on Demand Quality Suggestion Model</td>-->
-                    <!--<td style="width: 5%";></td>-->
-                    <!--<td style="width: 25%">January 2016 - May 2016</td>-->
-                    <!--<td style="width: 20%" rowspan="3"><img src="images/python.png" height="60px" width="60px"/><img-->
-                            <!--src="images/r.png" height="60px" width="60px"/></td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td class="expHeader3">-->
-                        <!--Machine learning model suggesting the YouTube video views the best video quality according to their network conditions-->
-                    <!--</td>-->
-                    <!--<td > </td>-->
-                    <!--<td></td>-->
-                <!--</tr>-->
-
-
-            <!--</table>-->
-            <!--<hr>-->
-            <table style=" color: black;width: 100%; margin-right: 7cm;  font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 55%;" class="expHeader">TCP Tahoe implementation over UDP</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%"></td>
-                    <td style="width: 20%" rowspan="3"><img src="images/python.png" height="60px" width="60px"/>
-                </tr>
-                <tr>
-                    <td class="expHeader4">
-                        <ul>
-                            <li>
-                                Python client server application with TCP Tahoe congestion avoidance and reliability mechanism over UPD transfer protocol. Also, implemented a self-designed congestion control algorithm to outperform TCP Tahoe.
-                            </li>
-                            <li>
-                                Achievements: Rewarded as the second best project.
-                            </li>
-                        </ul>
-                    </td>
-                    <td > </td>
-                    <td valign="top" style="font-size: medium">Aug 2015 - Dec 2015</td>
-                </tr>
-
-
-            </table>
+  </div>
+  <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background"
+       style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%">
+    <table border="0" style=" color: black;width: 100%;">
+      <tr>
+        <td style="width: 70%">
+          <p style=" margin-top: 1cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville">Full-Stack
+            software engineer with professional experience specialized in versatile software design and development,
+            production
+            management with continuous deployment and testing. Creative, flexible with proven analytical skills. Adept
+            at researching and crafting best technology
+            driven application focusing on wide range of clients and products.
+          </p>
+        </td>
+        <td style="width: 5%"></td>
+        <td style="width: 25%">
+          <div>
+            <p style="text-align: center; font-size: small"><a
+                href="https://drive.google.com/open?id=0B4phI9upKpzDRUNwV0gyeXhjQ2s"><i class="icon-file"></i> <span
+                class="glyphicon glyphicon-file"></span>DOWNLOAD COMPLETE CV</a>
+              <sm></sm>
+            </p>
+            <div>
+              <p style="text-align: center; font-size: small"><a
+                  href="https://drive.google.com/open?id=0B4phI9upKpzDNDdrNG9GT0JSRnc"><i class="icon-file"></i><span
+                  class="glyphicon glyphicon-file"></span>DOWNLOAD RESUME</a>
+              </p>
             </div>
-    </div>
-
+          </div>
+        </td>
+      </tr>
+    </table>
+    <table border="0" style=" color: black;width: 100%; margin-bottom: 3rem">
+      <tr>
+        <td style="vertical-align: top; padding-right: 1rem; ">
+          <span class="glyphicon glyphicon-ok"></span>
+        </td>
+        <td>
+          <p style="font-size: large; font-family: Baskerville">
+            Wide range application design and development suitable to the platform, environment had became a key for my
+            growth and success in my profession.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; padding-right: 1rem; ">
+          <span class="glyphicon glyphicon-ok"></span>
+        </td>
+        <td>
+          <p style="font-size: large; font-family: Baskerville">
+            Smooth transitions with quick learning and implementations across platforms adaptability will become a major
+            buy in.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; padding-right: 1rem; ">
+          <span class="glyphicon glyphicon-ok"></span>
+        </td>
+        <td>
+          <p style="font-size: large; font-family: Baskerville">
+            Multi-tasking focusing on delivering the promises and providing best cutting edge value adds to the
+            organisation became a routine in my current role.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; padding-right: 1rem; ">
+          <span class="glyphicon glyphicon-ok"></span>
+        </td>
+        <td>
+          <p style="font-size: large; font-family: Baskerville">
+            Never ending love around converting problems into quick proof of concepts which expose a complete visibility
+            of the scope.
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
-
-<div id = "education" class="container" style="; margin-left: 2.5cm">
-    <div style="height: 25px"></div>
-    <div class="row">
-        <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4" style="margin-left: 2cm; margin-right: 2.5cm; height: auto; width: auto">
-            <h1 class="title">Education</h1>
-        </div>
+<div id="experience" class="container" style="; margin-left: 2.5cm; ">
+  <div style="height: 25px"></div>
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4"
+         style="margin-left: 2cm; margin-right: 2.5cm; height: auto; width: auto">
+      <h1 class="title">Experience</h1>
     </div>
-    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background" style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%">
-        <div>
-            <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 1cm; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 70%;" class="expHeader">Masters of Sciences, Computer Science</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%">August 2015 - May 2017</td>
-                </tr>
-                <tr>
-                    <td class="expHeader2" >University of Iowa </td>
-                    <td></td>
-                    <td>Complete - GPA 3.8/4.0</td>
-                </tr>
-
-
+  </div>
+  <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background"
+       style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%">
+    <div>
+      <table
+          style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;"
+          border="0">
+        <tr>
+          <td style="width: 70%;" class="expHeader">Associate Senior Software Engineer</td>
+          <td style="width: 5%" ;></td>
+          <td style="width: 25%">August 2017 - Present</td>
+        </tr>
+        <tr>
+          <td class="expHeader2">Cerner Corporation</td>
+          <td></td>
+        </tr>
+        <tr style="height: 10px"></tr>
+        <tr>
+          <td class="expHeader4">
+            <ul>
+              <li>
+                Responsible in developing web applications for medical appointment scheduling.
+              </li>
+              <li>
+                Enriched with cutting edge tech stack and many tools and utils.
+              </li>
+              <li>
+                Always proactive in pulling in efficient algorithms and data structure standards
+              </li>
+              <li>
+                Highly focused on designing solutions targeting reusability as be a biggest key.
+              </li>
+              <li>
+                Jenkins pipeline scripting became a recent add-on to make all the applications fall under CI/CD
+                architecture.
+              </li>
+              <li>
+                Proven abilities of task break down aligned with the requirements leading to successful test driven
+                agile development.
+              </li>
+              <li>
+                Awarded as outstanding associate with early role promotions with in the first year of tenure.
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table>
+              <tr>
+                <td class="expHeader2">Tech Stack</td>
+              </tr>
+              <tr>
+                <td class="expHeader4">
+                  <ul>
+                    <li>
+                      React, Redux, Javascript, CSS, HTML5, WDIO, JEST (Frontend)
+                    </li>
+                    <li>
+                      Ruby on Rails, Capybara, RSpec (REST Services)
+                    </li>
+                    <li>
+                      JAVA, Junit (Backend)
+                    </li>
+                    <li>
+                      Groovy (Jenkins Pipeline).
+                    </li>
+                  </ul>
+                </td>
+              </tr>
             </table>
-            <hr>
-            <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 70%;" class="expHeader">Bachelor of Technology, Information Technology</td>
-                    <td style="width: 5%";></td>
-                    <td style="width: 25%">August 2008 - June 2012</td>
-                </tr>
-                <tr>
-                    <td class="expHeader2" >Jawaharlal Nehru Technological University</td>
-                    <td></td>
-                    <td>Complete - GPA 3.7/4.0</td>
-                </tr>
-
+          </td>
+        </tr>
+      </table>
+      <table
+          style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;"
+          border="0">
+        <tr>
+          <td style="width: 70%;" class="expHeader">Software Research and Development Intern</td>
+          <td style="width: 5%" ;></td>
+          <td style="width: 25%">May 2016 - August 2016</td>
+        </tr>
+        <tr>
+          <td class="expHeader2">Huawei Technologies, Co. Ltd - Wireless Networks</td>
+          <td></td>
+        </tr>
+        <tr style="height: 10px"></tr>
+        <tr>
+          <td class="expHeader4">
+            <ul>
+              <li>
+                Contributed in building a machine learning model in predicting the user experienced video quality for
+                encrypted video traffic.
+              </li>
+              <li>
+                Targeted YouTube, Netflix, Vimeo, Dailymotion with specific self defined video delivery patterns.
+              </li>
+              <li>
+                <a href="#research">Click here</a> for more info.
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+      <hr>
+      <table
+          style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;"
+          border="0">
+        <tr>
+          <td style="width: 70%;" class="expHeader">Senior Software Engineer</td>
+          <td style="width: 5%" ;></td>
+          <td style="width: 25%">June 2012 - July 2015</td>
+        </tr>
+        <tr>
+          <td class="expHeader2">TATA Consulancy Services - Bank of America</td>
+          <td></td>
+        </tr>
+        <tr style="height: 10px"></tr>
+        <tr>
+          <td class="expHeader4">
+            <ul>
+              <li>
+                Responsible in developing web and stand alone application/tools for automated tax reporting.
+              </li>
+              <li>
+                High valued associate in dealing with application dev and deployment.
+              </li>
+              <li>
+                Tagged my name under many solutions for delivering the most time efficient and user friendly softwares.
+              </li>
+              <li>
+                Involved in addition responsibilities of project and team management.
+              </li>
+              <li>
+                Going deep into the system for better understanding always gave me success in perfect way.
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table>
+              <tr>
+                <td class="expHeader2">Tech Stack</td>
+              </tr>
+              <tr>
+                <td class="expHeader4">
+                  <ul>
+                    <li>
+                      ASP.NET, JQuery, Bootstrap (Frontend)
+                    </li>
+                    <li>
+                      C# (Web Services)
+                    </li>
+                    <li>
+                      Oracle (Database)
+                    </li>
+                    <li>
+                      TFS (Software Packaging)
+                    </li>
+                  </ul>
+                </td>
+              </tr>
             </table>
-
-        </div>
+          </td>
+        </tr>
+      </table>
+      <hr>
+      <table
+          style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville;"
+          border="0">
+        <tr>
+          <td style="width: 70%;" class="expHeader">Software Engineer Intern</td>
+          <td style="width: 5%" ;></td>
+          <td style="width: 25%">June 2010 - June 2012</td>
+        </tr>
+        <tr>
+          <td class="expHeader2">Swecha Organisation - Free Software Foundation</td>
+          <td></td>
+        </tr>
+        <tr style="height: 10px"></tr>
+        <tr>
+          <td class="expHeader4">
+            <ul>
+              <li>
+                Responsible in managing organisation internal web portal;
+              </li>
+              <li>
+                Contribution towards Linux localization and web based learning for students.
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table>
+              <tr>
+                <td class="expHeader2">Tech Stack</td>
+              </tr>
+              <tr>
+                <td class="expHeader4">
+                  <ul>
+                    <li>
+                      HTML, CSS, Javascript (Frontend)
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
     </div>
-
+  </div>
 </div>
-
-
-<div id = "contactme" class="container" style="; margin-left: 2.5cm; ">
-    <div style="height: 25px"></div>
-    <div class="row">
-        <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4" style="margin-left: 2cm; margin-right: 2.5cm; height: auto; width: auto">
-            <h1 class="title">Catch me</h1>
-        </div>
+<div id="skills" class="container" style="margin-left: 2.5cm;">
+  <div style="height: 25px"></div>
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4"
+         style="margin-left: 2cm; margin-right: 2.5cm; height: auto; width: auto">
+      <h1 class="title">Skills</h1>
     </div>
-    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background" style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%; background-color: black">
-        <div>
-            <table style=" color: black;width: 100%; margin-right: 7cm; margin-top: 1cm; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;" border="0">
-                <tr>
-                    <td style="width: 30%; color: aliceblue">Email</td>
-                    <td style="width: 30%; color: aliceblue">Phone</td>
-                    <td style="width: 30%; color: aliceblue">Social</td>
-                    <td style="width: 30%; color: aliceblue">Git</td>
-
-                </tr>
-                <tr>
-                    <td><a href="mailto:kalyansaim@gmail.com" target="_top">kalyansaim@gmail.com</a></td>
-                    <td style="color: white"><span class="glyphicon glyphicon-earphone"></span> +1 (319) 930-9832</td>
-                    <td style="color: aquamarine"><a href="https://www.linkedin.com/in/saikcm" style="height: 100px">
-                        <img src="images/fb.png" height="20px" width="20px"/></a>
-                        |<a href="https://www.linkedin.com/in/saikalyanmoguloju" style="height: 100px">
-                            <img src="images/ln.png" height="30px" width="30px"/></a>
-                    </td>
-                    <td style="color: aquamarine"><a href="https://github.com/skalyanmoguloju/" style="height: 100px">
-                        <img src="images/github.png" height="20px" width="20px"/></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-
-                    <td></td>
-                </tr>
-            </table>
-        </div>
+  </div>
+  <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background"
+       style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%">
+    <div class="container" style="width: 100%">
+      <table border="0" style="width: 100%; margin-bottom: 1rem">
+        <tr>
+          <td style="width: 10%">
+            <span style="color: #292929;">React, Redux</span>
+          </td>
+          <td style="width: 23%">
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+          </td>
+          <td style="width: 10%">
+            <span style="color: #292929;">HTML5, CSS4</span>
+          </td>
+          <td style="width: 23%">
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+          </td>
+          <td style="width: 10%">
+            <span style="color: #292929;">Javascript</span>
+          </td>
+          <td style="width: 23%">
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 10%">
+            <span style="color: #292929;">JAVA</span>
+          </td>
+          <td style="width: 23%">
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+          </td>
+          <td style="width: 10%">
+            <span style="color: #292929;">Ruby on Rails</span>
+          </td>
+          <td style="width: 23%">
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+          </td>
+          <td style="width: 10%">
+            <span style="color: #292929;">C#</span>
+          </td>
+          <td style="width: 23%">
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 10%">
+            <span style="color: #292929;">Oracle</span>
+          </td>
+          <td style="width: 23%">
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+          </td>
+          <td style="width: 10%">
+            <span style="color: #292929;">Pythons</span>
+          </td>
+          <td style="width: 23%">
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+          </td>
+          <td style="width: 10%">
+            <span style="color: #292929;">Groovy</span>
+          </td>
+          <td style="width: 23%">
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+            <span><i class="text-warning fa fa-star"></i></span>
+          </td>
+        </tr>
+      </table>
     </div>
+  </div>
+</div>
+<div id="education" class="container" style="; margin-left: 2.5cm">
+  <div style="height: 25px"></div>
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4"
+         style="margin-left: 2cm; margin-right: 2.5cm; height: auto; width: auto">
+      <h1 class="title">Education</h1>
+    </div>
+  </div>
+  <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background"
+       style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%">
+    <div>
+      <table
+          style=" color: black;width: 100%; margin-right: 7cm; margin-top: 1cm; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;"
+          border="0">
+        <tr>
+          <td style="width: 70%;" class="expHeader">Masters of Sciences, Computer Science</td>
+          <td style="width: 5%" ;></td>
+          <td style="width: 25%">August 2015 - May 2017</td>
+        </tr>
+        <tr>
+          <td class="expHeader2">University of Iowa</td>
+          <td></td>
+          <td>Complete - GPA 3.8/4.0</td>
+        </tr>
+      </table>
+      <hr>
+      <table
+          style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville;"
+          border="0">
+        <tr>
+          <td style="width: 70%;" class="expHeader">Bachelor of Technology, Information Technology</td>
+          <td style="width: 5%" ;></td>
+          <td style="width: 25%">August 2008 - June 2012</td>
+        </tr>
+        <tr>
+          <td class="expHeader2">Jawaharlal Nehru Technological University</td>
+          <td></td>
+          <td>Complete - GPA 3.7/4.0</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div id="projects" class="container" style="; margin-left: 2.5cm; ">
+  <div style="height: 25px"></div>
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4"
+         style="margin-left: 2cm; margin-right: 2.5cm; height: auto; width: auto">
+      <h1 class="title">Projects</h1>
+    </div>
+  </div>
+  <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background"
+       style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%">
+    <div style="margin-bottom: 1rem">
+      <!--<h3>Professional</h3>-->
+      <!--<hr>-->
+      <!--<table style=" color: black;width: 100%; margin-right: 7cm;  font-size: large; font-family: Baskerville;"-->
+             <!--border="0">-->
+        <!--<tr>-->
+          <!--<td style="width: 55%;" class="expHeader">Bank of America Tax Reporting System Web</td>-->
+          <!--<td style="width: 5%" ;></td>-->
+          <!--<td style="width: 25%"></td>-->
+          <!--<td style="width: 20%" rowspan="3"><img src="images/angular.png" height="60px" width="60px"/>-->
+            <!--<img src="images/net.png" height="60px" width="60px"/>-->
+          <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td class="expHeader4">-->
+            <!--<ul>-->
+              <!--<li>-->
+                <!--Web prototype enabling bank employees to view customers detailed transactions with respect to their-->
+                <!--investments and taxes.-->
+              <!--</li>-->
+              <!--<li>-->
+                <!--A mainframe to web migration project with many design challenges including security, usability and-->
+                <!--efficiency.-->
+              <!--</li>-->
+            <!--</ul>-->
+          <!--</td>-->
+          <!--<td></td>-->
+          <!--<td valign="top" style="font-size: medium">Feb 2015 - Apr 2015</td>-->
+        <!--</tr>-->
+      <!--</table>-->
+      <!--<hr>-->
+      <!--<table style=" color: black;width: 100%; margin-right: 7cm; font-size: large; font-family: Baskerville;"-->
+             <!--border="0">-->
+        <!--<tr>-->
+          <!--<td style="width: 55%;" class="expHeader">Environment level database cross comparison for Oracle</td>-->
+          <!--<td style="width: 5%" ;></td>-->
+          <!--<td style="width: 25%"></td>-->
+          <!--<td style="width: 20%" rowspan="3"><img src="images/oracle.png" height="15px" width="60px"/>-->
+            <!--<img src="images/net.png" height="60px" width="60px"/>-->
+          <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td class="expHeader4">-->
+            <!--<ul>-->
+              <!--<li>-->
+                <!--An interface driven database comparison tool to cross validate schema objects across different-->
+                <!--environment.-->
+              <!--</li>-->
+              <!--<li>-->
+                <!--Successfully deployed reporting mechanism to extract results before and after every data migration to-->
+                <!--check the consistency.-->
+              <!--</li>-->
+            <!--</ul>-->
+          <!--</td>-->
+          <!--<td></td>-->
+          <!--<td valign="top" style="font-size: medium">Jan 2015 - Mar 2015</td>-->
+        <!--</tr>-->
+      <!--</table>-->
+      <!--<hr>-->
+      <!--<table style=" color: black;width: 100%; margin-right: 7cm;  font-size: large; font-family: Baskerville;"-->
+             <!--border="0">-->
+        <!--<tr>-->
+          <!--<td style="width: 55%;" class="expHeader">Oracle Custom data definition tool</td>-->
+          <!--<td style="width: 5%" ;></td>-->
+          <!--<td style="width: 25%"></td>-->
+          <!--<td style="width: 20%" rowspan="3"><img src="images/oracle.png" height="15px" width="60px"/>-->
+            <!--<img src="images/net.png" height="60px" width="60px"/>-->
+          <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td class="expHeader4">-->
+            <!--<ul>-->
+              <!--<li>-->
+                <!--An innovative value-add allowing developers to know the detailed structure of the database objects and-->
+                <!--their dependencies.-->
+              <!--</li>-->
+              <!--<li>-->
+                <!--This was one of my great asset; considered as a best innovation and the model was implemented by all-->
+                <!--Oracle based applications throughout the domain-->
+              <!--</li>-->
+            <!--</ul>-->
+          <!--</td>-->
+          <!--<td></td>-->
+          <!--<td valign="top" style="font-size: medium">Jan 2015 - Mar 2015</td>-->
+        <!--</tr>-->
+      <!--</table>-->
+      <!--<hr>-->
+      <!--<table-->
+          <!--style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm;  font-size: large; font-family: Baskerville;"-->
+          <!--border="0">-->
+        <!--<tr>-->
+          <!--<td style="width: 55%;" class="expHeader">Automated User Interface Test Automation</td>-->
+          <!--<td style="width: 5%" ;></td>-->
+          <!--<td style="width: 25%"></td>-->
+          <!--<td style="width: 20%" rowspan="3">-->
+            <!--<img src="images/net.png" height="60px" width="60px"/>-->
+          <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td class="expHeader4">-->
+            <!--<ul>-->
+              <!--<li>-->
+                <!--Microsoft came up with CodedUI to automate user interface testing, a great learning chance to explore-->
+                <!--this automation engine.-->
+              <!--</li>-->
+              <!--<li>-->
+                <!--Provided automation scripts to the testing team to test the UI and as an additional feature implemented-->
+                <!--an interface enabling testers to select the script to run along with the custom driven testing data.-->
+              <!--</li>-->
+            <!--</ul>-->
+          <!--</td>-->
+          <!--<td></td>-->
+          <!--<td valign="top" style="font-size: medium">Jan 2014 - Mar 2014</td>-->
+        <!--</tr>-->
+      <!--</table>-->
+      <!--<hr>-->
+      <!--<table style=" color: black;width: 100%; margin-right: 7cm;  font-size: large; font-family: Baskerville;"-->
+             <!--border="0">-->
+        <!--<tr>-->
+          <!--<td style="width: 55%;" class="expHeader">Bulk data loader to Oracle</td>-->
+          <!--<td style="width: 5%" ;></td>-->
+          <!--<td style="width: 25%"></td>-->
+          <!--<td style="width: 20%" rowspan="3">-->
+            <!--<img src="images/net.png" height="60px" width="60px"/>-->
+            <!--<img src="images/oracle.png" height="15px" width="60px"/>-->
+          <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td class="expHeader4">-->
+            <!--<ul>-->
+              <!--<li>-->
+                <!--Achieved an efficient approach to load complex data from external sources to Oracle database with-->
+                <!--plugged custom data validation system.-->
+              <!--</li>-->
+              <!--<li>-->
+                <!--Project was implemented on the ELT background with custom components.-->
+              <!--</li>-->
+              <!--<li>-->
+                <!--Achievement: Awarded as the best project with zero defects during system and unit testing.-->
+              <!--</li>-->
+            <!--</ul>-->
+          <!--</td>-->
+          <!--<td></td>-->
+          <!--<td valign="top" style="font-size: medium">Jan 2014 - Mar 2014</td>-->
+        <!--</tr>-->
+      <!--</table>-->
+      <!--<hr>-->
+      <!--<table style=" color: black;width: 100%; margin-right: 7cm;  font-size: large; font-family: Baskerville;"-->
+             <!--border="0">-->
+        <!--<tr>-->
+          <!--<td style="width: 55%;" class="expHeader">Bank of America Auto reporting</td>-->
+          <!--<td style="width: 5%" ;></td>-->
+          <!--<td style="width: 25%"></td>-->
+          <!--<td style="width: 20%" rowspan="3">-->
+            <!--<img src="images/net.png" height="60px" width="60px"/>-->
+            <!--<img src="images/oracle.png" height="15px" width="60px"/>-->
+          <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td class="expHeader4">-->
+            <!--<ul>-->
+              <!--<li>-->
+                <!--Auto-sys application to generate reports like summary, detail, edit, etc. for all transaction made by-->
+                <!--the customers on a daily basis. These reports help employees to tracks financial changes in global-->
+                <!--investment markets.-->
+              <!--</li>-->
+            <!--</ul>-->
+          <!--</td>-->
+          <!--<td></td>-->
+          <!--<td valign="top" style="font-size: medium">Jan 2013 - Mar 2014</td>-->
+        <!--</tr>-->
+      <!--</table>-->
+      <!--<hr>-->
+      <!--<table style=" color: black;width: 100%; margin-right: 7cm;  font-size: large; font-family: Baskerville;"-->
+             <!--border="0">-->
+        <!--<tr>-->
+          <!--<td style="width: 55%;" class="expHeader">Bank of America State and Federal tax reporting</td>-->
+          <!--<td style="width: 5%" ;></td>-->
+          <!--<td style="width: 25%"></td>-->
+          <!--<td style="width: 20%" rowspan="3">-->
+            <!--<img src="images/net.png" height="60px" width="60px"/>-->
+            <!--<img src="images/oracle.png" height="15px" width="60px"/>-->
+          <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td class="expHeader4">-->
+            <!--<ul>-->
+              <!--<li>-->
+                <!--Web and stand-alone applications for Bank of America employees to automate federal and state tax-->
+                <!--reporting and tracking to Internal Revenue System (IRS).-->
+              <!--</li>-->
+              <!--<li>-->
+                <!--Project was integrated with crystal reporting and admin level tools to handle user access managements-->
+              <!--</li>-->
+            <!--</ul>-->
+          <!--</td>-->
+          <!--<td></td>-->
+          <!--<td valign="top" style="font-size: medium">Jan 2013 - Jun 2015</td>-->
+        <!--</tr>-->
+      <!--</table>-->
+      <!--<hr>-->
 
+      <h3>Selected Personal Projects</h3>
+      <hr>
+      <table style=" color: black;width: 100%; margin-right: 7cm;  font-size: large; font-family: Baskerville;"
+             border="0">
+        <tr>
+          <td style="width: 55%;" class="expHeader">Retro Board</td>
+          <td style="width: 5%" ;></td>
+          <td style="width: 25%"></td>
+          <td style="width: 20%" rowspan="3"><img src="images/react.png" height="60px" width="60px"/><img
+              src="images/terra.png" height="60px" width="60px"/></td>
+        </tr>
+        <tr style="height: 10px"></tr>
+        <tr>
+          <td class="expHeader4">
+            <ul>
+              <li>
+                React based UI for managing retro-board for agile teams.
+              </li>
+              <li>
+                Currently working on the backend part to make it ready for the complete consumption.
+              </li>
+              <li>
+                <a href="https://skalyanmoguloju.github.io/retro-board/#/raw/tests/retro-board/fun-retro">Click here</a> for viewing the current static application.
+              </li>
+            </ul>
+          </td>
+          <td></td>
+          <td valign="top" style="font-size: medium">June 2019 - Present</td>
+        </tr>
+      </table>
+      <hr>
+      <table style=" color: black;width: 100%; margin-right: 7cm;  font-size: large; font-family: Baskerville;"
+             border="0">
+        <tr>
+          <td style="width: 55%;" class="expHeader">Kirana Bazaar</td>
+          <td style="width: 5%" ;></td>
+          <td style="width: 25%"></td>
+          <td style="width: 20%" rowspan="3"><img src="images/react.png" height="60px" width="60px"/><img
+              src="images/reactBS.png" height="60px" width="60px"/></td>
+        </tr>
+        <tr style="height: 10px"></tr>
+        <tr>
+          <td class="expHeader4">
+            <ul>
+              <li>
+                Web portal to provide platform for selling grocerries online.
+              </li>
+              <li>
+                Currently working on this project. Targeting to deploy this out into market in couple of months.
+              </li>
+            </ul>
+          </td>
+          <td></td>
+          <td valign="top" style="font-size: medium">June 2019 - Present</td>
+        </tr>
+      </table>
+      <hr>
+      <table style=" color: black;width: 100%; margin-right: 7cm;  font-size: large; font-family: Baskerville;"
+             border="0">
+        <tr>
+          <td style="width: 55%;" class="expHeader">Labalytics</td>
+          <td style="width: 5%" ;></td>
+          <td style="width: 25%"></td>
+          <td style="width: 20%" rowspan="3"><img src="images/angular2.png" height="60px" width="60px"/><img
+              src="images/play.jpg" height="80px" width="70px"/></td>
+        </tr>
+        <tr style="height: 10px"></tr>
+        <tr>
+          <td class="expHeader4">
+            <ul>
+              <li>
+                A complete web portal to manage technical laboratories maintained by self-employed owners.
+              </li>
+              <li>
+                Resource utilization was the main moto behind this project. Students and users can schedule an online
+                appointment to utilize the equipment.
+              </li>
+              <li>
+                Additionally, system is integrated with billing and utilization reports, notification, scheduling
+                features.
+              </li>
+            </ul>
+          </td>
+          <td></td>
+          <td valign="top" style="font-size: medium">Jan 2017 - May 2017</td>
+        </tr>
+      </table>
+      <hr>
+      <table style=" color: black;width: 100%; margin-right: 7cm; font-size: large; font-family: Baskerville;"
+             border="0">
+        <tr>
+          <td style="width: 55%;" class="expHeader">Auto Scheduler</td>
+          <td style="width: 5%" ;></td>
+          <td style="width: 25%"></td>
+          <td style="width: 20%" rowspan="3"><img src="images/ios.png" height="45px" width="60px"/><img
+              src="images/node.png" height="60px" width="60px"/></td>
+        </tr>
+        <tr style="height: 10px"></tr>
+        <tr>
+          <td class="expHeader4">
+            <ul>
+              <li>
+                iOS application to automate meeting scheduling process.
+              </li>
+              <li>
+                Meeting creator need to give out the meeting time line and participant details, application will take
+                care of pulling up the common free times between participants and give suggestions.
+              </li>
+              <li>
+                Application will also update the users calendar with the event details.
+              </li>
+            </ul>
+          </td>
+          <td></td>
+          <td valign="top" style="font-size: medium">Sep 2016 - Jan 2017</td>
+        </tr>
+      </table>
+      <hr>
+      <table
+          style=" color: black;width: 100%; margin-right: 7cm; margin-top: 0.5cm;font-size: large; font-family: Baskerville;"
+          border="0">
+        <tr>
+          <td style="width: 55%;" class="expHeader">Services Nearby</td>
+          <td style="width: 5%" ;></td>
+          <td style="width: 25%"></td>
+          <td style="width: 20%" rowspan="3"><img src="images/ruby.png" height="60px" width="60px"/><img
+              src="images/heroku.png" height="60px" width="60px"/></td>
+        </tr>
+        <tr style="height: 10px"></tr>
+        <tr>
+          <td class="expHeader4">
+            <ul>
+              <li>
+                Finding things around the unknown places was the tagline behind this project.
+              </li>
+              <li>
+                Achieved an integrated web platform where users can avail services by searching them against their
+                requirements and make a service deal with the service provide.
+              </li>
+              <li>
+                It also targets service providers by providing visions for their business marketing.
+              </li>
+              <li>
+                Integrated with service rating and review mechanism to ensure best business standards
+              </li>
+            </ul>
+          </td>
+          <td></td>
+          <td valign="top" style="font-size: medium">Sep 2016 - Jan 2017</td>
+        </tr>
+      </table>
+      <hr>
+      <table style=" color: black;width: 100%; margin-right: 7cm; font-size: large; font-family: Baskerville;"
+             border="0">
+        <tr>
+          <td style="width: 55%;" class="expHeader">Inventory Management System</td>
+          <td style="width: 5%" ;></td>
+          <td style="width: 25%"></td>
+          <td style="width: 20%" rowspan="3"><img src="images/java.png" height="60px" width="60px"/><img
+              src="images/logo-mysql-170x115.png" height="60px" width="60px"/></td>
+        </tr>
+        <tr>
+          <td class="expHeader4">
+            <ul>
+              <li>
+                Organization would always need a system to take care of inventory requirements.
+              </li>
+              <li>
+                Designed an internal web portal allowing employees to check out for the inventory deals given by the
+                authorized sales team.
+              </li>
+              <li>
+                Additionally, application is availed with quality management system.
+              </li>
+            </ul>
+          </td>
+          <td></td>
+          <td valign="top" style="font-size: medium">Jan 2016 - May 2016</td>
+        </tr>
+      </table>
+      <hr>
+      <table style=" color: black;width: 100%; margin-right: 7cm;  font-size: large; font-family: Baskerville;"
+             border="0">
+        <tr>
+          <td style="width: 55%;" class="expHeader">TCP Tahoe implementation over UDP</td>
+          <td style="width: 5%" ;></td>
+          <td style="width: 25%"></td>
+          <td style="width: 20%" rowspan="3"><img src="images/python.png" height="60px" width="60px"/>
+        </tr>
+        <tr>
+          <td class="expHeader4">
+            <ul>
+              <li>
+                Python client server application with TCP Tahoe congestion avoidance and reliability mechanism over UPD
+                transfer protocol. Also, implemented a self-designed congestion control algorithm to outperform TCP
+                Tahoe.
+              </li>
+              <li>
+                Achievements: Rewarded as the second best project.
+              </li>
+            </ul>
+          </td>
+          <td></td>
+          <td valign="top" style="font-size: medium">Aug 2015 - Dec 2015</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div id="research" class="container" style="margin-left: 2.5cm;">
+  <div style="height: 25px"></div>
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4"
+         style="margin-left: 2cm; margin-right: 2.5cm; height: auto; width: auto">
+      <h1 class="title">Research</h1>
+    </div>
+  </div>
+  <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background"
+       style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%">
+    <div>
+      <table
+          style=" color: black;width: 100%; margin-right: 7cm; margin-top: 1.5rem; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;"
+          border="0">
+        <tr>
+          <td style="width: 70%;" class="expHeader">Video Quality of Experience Prediction</td>
+          <td style="width: 5%" ;></td>
+          <td style="width: 25%">January 2016 - May 2017</td>
+        </tr>
+        <tr>
+          <td class="expHeader2">Professor Zubair Shafiq, University of Iowa</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr style="height: 15px;"></tr>
+        <tr>
+          <td colspan="3" style=" margin-top: 1cm; margin-bottom: 1cm; font-size: large; font-family: Baskerville">In
+            depth study on transport and network layer protocols to correlate encrypted application layer protocol
+            targeting to predict user's quality of experience.
+          </td>
+        </tr>
+        </tr>
+        <tr style="height: 15px;"></tr>
+        <tr>
+        <tr>
+          <td style=" margin-top: 1cm; margin-bottom: 1cm; font-size: medium; font-family: Baskerville">
+            <ul>
+              <li>Successfully proposed and built Machine Learning models to predict quality of experience like video
+                quality, buffering events, etc. by analysis the network and transport layer header information.
+              </li>
+              <li>Developed scripts to extract video player ground truth from the web browser using browser extensions
+                and java script injections.
+              </li>
+              <li>Performed feature extraction from network traces using PCAP and TCPDUMP
+              </li>
+              <li>Experience with data analytics, including classification, analysis, modelling.
+              </li>
+            </ul>
+          </td>
+          <td style="width: 5%"></td>
+          <td style="width: 25%">
+            <div>
+              <p style="text-align: center; font-size: small"><a
+                  href="https://drive.google.com/file/d/0B4phI9upKpzDMF9VR3ZUb0tJaXM/view?usp=sharing"><i
+                  class="icon-file"></i> <span class="glyphicon glyphicon-file"></span>DOWNLOAD Report</a>
+                <sm></sm>
+              </p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3"
+              style=" margin-top: 1cm; margin-bottom: 1cm; font-size: large;color: darkblue; font-family: Baskerville">
+            Technologies
+          </td>
 
+        </tr>
+        <tr style="height: 10px"></tr>
+        <tr>
+          <td>
+            <img src="images/python.png" height="60px" width="60px"/>
+            <img src="images/r.png" height="60px" width="60px"/>
+            <img src="images/js.png" height="60px" width="60px"/>
+            <img src="images/matlab.png" height="60px" width="60px"/>
+            <img src="images/Selenium.png" height="60px" width="60px"/>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div id="contactme" class="container" style="; margin-left: 2.5cm; ">
+  <div style="height: 25px"></div>
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4"
+         style="margin-left: 2cm; margin-right: 2.5cm; height: auto; width: auto">
+      <h1 class="title">Catch me</h1>
+    </div>
+  </div>
+  <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background"
+       style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%; background-color: black">
+    <div>
+      <table
+          style=" color: black;width: 100%; margin-right: 7cm; margin-top: 1.5rem; margin-bottom: 0.5cm; font-size: large; font-family: Baskerville;"
+          border="0">
+        <tr>
+          <td style="width: 30%; color: aliceblue">Email</td>
+          <td style="width: 30%; color: aliceblue">Phone</td>
+          <td style="width: 30%; color: aliceblue">Social</td>
+          <td style="width: 30%; color: aliceblue">Git</td>
+        </tr>
+        <tr>
+          <td><a href="mailto:kalyansaim@gmail.com" target="_top">kalyansaim@gmail.com</a></td>
+          <td style="color: white"><span class="glyphicon glyphicon-earphone"></span> +1 (319) 930-9832</td>
+          <td style="color: aquamarine"><a href="https://www.linkedin.com/in/saikcm" style="height: 100px">
+            <img src="images/fb.png" height="20px" width="20px"/></a>
+            |<a href="https://www.linkedin.com/in/saikalyanmoguloju" style="height: 100px">
+              <img src="images/ln.png" height="30px" width="30px"/></a>
+          </td>
+          <td style="color: aquamarine"><a href="https://github.com/skalyanmoguloju/" style="height: 100px">
+            <img src="images/github.png" height="20px" width="20px"/></a>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
 <br>
-
-<div  class="container" style="; margin-left: 2.5cm; ">
-    <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background" style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%; background-color: transparent">
-        <div style="text-align: right; font-size: small; font-weight: bold">
-            <span class="glyphicon glyphicon-copyright-mark"></span> Copy-left Sai Kalyan Moguloju
-        </div>
+<div class="container" style="; margin-left: 2.5cm; ">
+  <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background"
+       style="margin-left: 2cm; margin-right: 0.5cm; height: auto; width: 100%; background-color: transparent">
+    <div style="text-align: right; font-size: small; font-weight: bold">
+      <span class="glyphicon glyphicon-copyright-mark"></span> Copy-left Sai Kalyan Moguloju
     </div>
-
-
-
+  </div>
 </div>
-
 <br>
-
-
 </body>
 
 
